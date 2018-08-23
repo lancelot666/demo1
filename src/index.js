@@ -1,0 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import {logSwitch} from './config/config';
+import {get,post} from './config/fetchAPI';
+logSwitch();
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
