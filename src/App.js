@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {get,post} from './config/fetchAPI';
-
+import 'whatwg-fetch';
+import 'es6-promise';
 class App extends Component {
   constructor(){
     super();  
