@@ -5,21 +5,34 @@ class App extends Component {
   constructor(props){
     super(props);  
     console.log('初始化')
-    //this.getData();
+    this.changeName2 = this.changeName2.bind(this);
     console.log(this.props)
+    this.getData();
   }
   async getData(){
     await window.get();
     await window.post('',{id:1});
   }
-  changeName2(b){
-    this.props.mapCHANGENAME(b)
+  changeName2(){
+    this.props.mapCHANGENAME('555')
+  }
+  changeName3=()=>{
+    this.props.mapCHANGENAME('666')
+  }
+  changeName4(v){
+    this.props.mapCHANGENAME(v)
   }
   render() {
     return (
       <div className="App">
+        {/* 第一种直接在render中bind(this)，导致每次渲染都会消耗性能，不推荐使用 */}
         <div onClick={this.props.mapCHANGENAME.bind(this,'444')}>{this.props.mapName}</div>
-        <div onClick={this.changeName2.bind(this,'555')}>{this.props.mapName}</div>
+        {/* 第二种只在构造器中绑定this，之后渲染更新不会再绑定，官方推荐使用 */}
+        <div onClick={this.changeName2}>{this.props.mapName}</div>
+        {/* 第三种直接声明方法时就绑定，更简洁，个人推荐 */}
+        <div onClick={this.changeName3}>{this.props.mapName}</div>
+        {/* 第四种在onClick中绑定this,方便即时传参 */}
+        <div onClick={()=>this.changeName4('777')}>{this.props.mapName}</div>
       </div>
     );
   }
