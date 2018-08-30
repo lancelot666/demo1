@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import style from './home.less';
 class Home extends Component{
     constructor(props){
         super(props); 
@@ -7,7 +7,10 @@ class Home extends Component{
     }
     render() {
         return (
-            <div>this is home</div>
+        	<div>
+            	<div className={style.bg}>this is home</div>
+            	<div className="title">作用域css</div>
+            </div>
         )
     }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Switch, Route,Link } from 'react-router-dom'
 import * as act from './redux/actions/homeAction';
-import Home from './view/home'
+import Home from './view/home/home'
 class App extends Component {
   constructor(props){
     super(props);  
@@ -33,7 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         {/* 第一种直接在render中bind(this)，导致每次渲染都会消耗性能，不推荐使用 */}
-        <div onClick={this.props.mapCHANGENAME.bind(this,'444')}>{this.props.mapName}</div>
+        <div className="title" onClick={this.props.mapCHANGENAME.bind(this,'444')}>{this.props.mapName}</div>
         {/* 第二种只在构造器中绑定this，之后渲染更新不会再绑定，官方推荐使用 */}
         <div onClick={this.changeName2}>{this.props.mapName}</div>
         {/* 第三种直接声明方法时就绑定，更简洁，个人推荐 */}
