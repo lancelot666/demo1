@@ -6,9 +6,9 @@ import Home from './view/home/home'
 class App extends Component {
   constructor(props){
     super(props);  
-    console.log('初始化')
+    console.log('App初始化')
     this.changeName2 = this.changeName2.bind(this);
-    console.log(this.props)
+    //console.log(this.props)
     //this.getData();
   }
   async getData(){
