@@ -26,3 +26,22 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.bottom_div{
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background: burlywood;
+  justify-content: space-around;
+  height: 40px;
+  line-height: 40px;
+}
+.main_div{
+  border: 1px solid red;
+  display: flex;
+  height: 100%;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+  background: gray;
+}

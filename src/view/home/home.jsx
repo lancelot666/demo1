@@ -12,10 +12,11 @@ class Home extends Component{
         console.log('home DidMount')
     }
     toUser(){
+        console.log(this)
         this.props.history.push('/user')
     }
     add(state){
-        this.setState({num:state.num+1})
+        this.setState({num:state.num+1},()=>{console.log(this.state.num)})
     }
     render() {
         return (
@@ -28,11 +29,13 @@ class Home extends Component{
                     <button onClick={()=>this.toUser()}>to user</button>
                 </div>
                 <Switch>
-                    <Route exact path='/user' component={User} />
+                    <Route exact path='/user' component={UserRoute} />
                 </Switch>
             </div>
         )
     }
 }
-
+const UserRoute =({match})=>{
+    <Route path={`${match.url}/user`} component={User} />
+}
 export default Home;
