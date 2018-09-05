@@ -19,6 +19,7 @@ class Home extends Component{
         this.setState({num:state.num+1},()=>{console.log(this.state.num)})
     }
     render() {
+        const match=this.props.match;
         return (
         	<div>
             	<div className={style.bg}>this is home</div>
@@ -29,13 +30,10 @@ class Home extends Component{
                     <button onClick={()=>this.toUser()}>to user</button>
                 </div>
                 <Switch>
-                    <Route exact path='/user' component={UserRoute} />
+                    <Route exact path={`${match.url}`} component={User} />
                 </Switch>
             </div>
         )
     }
-}
-const UserRoute =({match})=>{
-    <Route path={`${match.url}/user`} component={User} />
 }
 export default Home;

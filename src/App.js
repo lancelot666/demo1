@@ -32,14 +32,18 @@ class App extends Component {
     this.props.history.push('/'+item)
     //this.props.history.push('/404')
   }
+  toList(){
+    this.props.history.push('/index/list')
+    console.log('js to list is running:',this.props.match)
+  }
   toUser(item=''){
    
-    this.props.history.push('/user'+item)
+    this.props.history.push('/index/user'+item)
     console.log('js to user is running:',this.props.match)
   }
   render() {
     const match=this.props.match;
-    console.log('app:',match)
+    //console.log('app:',match)
     return (
       <div className="App">
         {/* 第一种直接在render中bind(this)，导致每次渲染都会消耗性能，不推荐使用 */}
@@ -54,9 +58,9 @@ class App extends Component {
         {/* <button onClick={()=>this.to404(404)}>js to 404</button> */}
         <div className={tc.main_div}>  
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path={`${match.url}/user`} component={Home} />
-            <Route exact path='/user' component={User} />
+            <Route exact path={`${match.url}`} component={Home} />
+            <Route exact path={`${match.url}/list`} component={Home} />
+            <Route exact path='/index/user' component={User} />
             <Route component={notfound} />
           </Switch>
         </div>

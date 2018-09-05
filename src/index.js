@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {BrowserRouter,Switch,Route} from 'react-router-dom';
+import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom';
 import store from './redux/store';
 import './index.css';
 import App from './App';
@@ -18,8 +18,9 @@ ReactDOM.render(
     <Provider store = {store}>
         <BrowserRouter>
             <Switch>
-                <Route match='match' path="/" component={App} />
-                <Route exact path="/404" component={notfound} />
+                <Redirect exact from="/" to="/index" />
+                <Route match='match' path="/index" component={App} />
+                <Route component={notfound} />
             </Switch>    
         </BrowserRouter>
     </Provider>

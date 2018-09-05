@@ -10,6 +10,7 @@ class User extends Component{
         console.log('user Mount');
     }
     render() {
+        
         return (
             <div>this is user</div>
         )
