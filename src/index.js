@@ -18,8 +18,8 @@ ReactDOM.render(
     <Provider store = {store}>
         <BrowserRouter>
             <Switch>
-                <Redirect exact from="/" to="/index" />
                 <Route match='match' path="/index" component={App} />
+                <Redirect exact from="/" to="/index" />
                 <Route component={notfound} />
             </Switch>    
         </BrowserRouter>
